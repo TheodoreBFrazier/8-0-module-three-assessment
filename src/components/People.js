@@ -61,10 +61,6 @@ class People extends React.Component {
 
 
 
-        //Display the info
-
-
-
     }
 }
 
