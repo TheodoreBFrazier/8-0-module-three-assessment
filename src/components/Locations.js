@@ -3,7 +3,7 @@ import "../App.css";
 
 class Locations extends React.Component {
     render() {
-        return <h2>This is the locations page!!!</h2>
+        return <h2>List of Locations</h2>
     }
 }
 

@@ -1,5 +1,10 @@
 .nav-bar {
-    height: 100px;
+    height: 150 px;
     background-color: chartreuse;
     grid-template-columns: 4 (1fr);
+}
+
+.home-logo {
+    height:50px;
+    width: 50px;
 }
