@@ -26,24 +26,22 @@ class Movies extends React.Component {
     render() {
         //test for data return 
         let mapThroughMovies = this.state.returnedMovies.map((eachMovie) => {
-            return (
-                <div>
-                    <h1>Select A Movie</h1>
-                    <h1>Name: {eachMovie.title}</h1>
-                </div>
-            )
-
+            return <option value={eachMovie.title}> {eachMovie.title} </option>
         })
-
-        //Display the info
-
         return (
             <div>
-                {mapThroughMovies}
+                <h1>Select A Movie</h1>
+                <form>
+                    <select>
+                        {mapThroughMovies}
+                    </select>
+                </form>
             </div>
         )
 
     }
 }
+
+
 
 export default Movies

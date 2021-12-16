@@ -7,7 +7,18 @@ class People extends React.Component {
         this.state = {
             returnedPeople: [],
             searchTerm: "", //to search
+            selectedPerson: []
         }
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            searchTerm: event.target.value
+        })
+    }
+
+    handleSearch = () => {
+        this.fetchPeopleInfo(this.state.searchTerm)
     }
 
     fetchPeopleInfo = () => {
@@ -26,35 +37,24 @@ class People extends React.Component {
 
     //handlechange for submit 
 
-    handleChange = (event) => {
-        this.setState({
-            searchTerm: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.fetchPeopleInfo();
-    };
-
-
     render() {
         //test for data return 
         return (
             <div>
                 <h1>Search for a Person</h1>
-                <div id="form-container" onSubmit = {this.state.handleSubmit}> 
                     <form>
                         <input
                             id="people-search"
                             type="text"
                             placeholder="Search for a person"
-                            onChange={this.state.handleChange} //we use state vs props because we are internally in component
+                            onChange={event => this.handleChange(event)} //we use state vs props because we are internally in component
+                            value = {this.state.searchTerm} //set the input
                         />
-                        <button type="submit" id="submit-button" value="search">Submit</button>
+                        <button onClick={this.handleSearch}>Submit</button>
 
                     </form>
-                </div>
+
+
 
             </div>
         )
