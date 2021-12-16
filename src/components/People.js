@@ -5,7 +5,8 @@ class People extends React.Component {
         super()
 
         this.state = {
-            returnedPeople: []
+            returnedPeople: [],
+            searchTerm: "", //to search
         }
     }
 
@@ -23,27 +24,46 @@ class People extends React.Component {
         this.fetchPeopleInfo()
     }
 
+    //handlechange for submit 
+
+    handleChange = (event) => {
+        this.setState({
+            searchTerm: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.fetchPeopleInfo();
+    };
+
 
     render() {
         //test for data return 
-        let mapThroughPeople = this.state.returnedPeople.map((eachPerson) => {
-            return (
-                <div>
-                    <h1>Search for a Person</h1>
-                <h1>Name: {eachPerson.name}</h1>
+        return (
+            <div>
+                <h1>Search for a Person</h1>
+                <div id="form-container">
+                    <form>
+                        <input
+                            id="people-search"
+                            type="text"
+                            placeholder="Search for a person"
+                            onChange={this.state.handleChange} //we use state vs props because we are internally in component
+                        />
+                        <button type="submit" id="submit-button" value="search">Submit</button>
 
+                    </form>
                 </div>
-            )
 
-        })
+            </div>
+        )
+
+
 
         //Display the info
 
-        return (
-            <div>
-                {mapThroughPeople}
-            </div>
-        )
+
 
     }
 }
