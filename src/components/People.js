@@ -43,7 +43,7 @@ class People extends React.Component {
         return (
             <div>
                 <h1>Search for a Person</h1>
-                <div id="form-container">
+                <div id="form-container" onSubmit = {this.state.handleSubmit}> 
                     <form>
                         <input
                             id="people-search"
