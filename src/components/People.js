@@ -40,7 +40,7 @@ class People extends React.Component {
     render() {
         //test for data return 
         return (
-            <div>
+            <div className = "people">
                 <h1>Search for a Person</h1>
                     <form>
                         <input
@@ -51,6 +51,8 @@ class People extends React.Component {
                             value = {this.state.searchTerm} //set the input
                         />
                         <button onClick={this.handleSearch}>Submit</button>
+
+                        if 
 
                     </form>
 

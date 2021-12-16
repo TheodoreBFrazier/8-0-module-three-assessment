@@ -5,7 +5,9 @@ class Movies extends React.Component {
         super()
 
         this.state = {
-            returnedMovies: []
+            returnedMovies: [],
+            eachMovie: {},
+            movieSelect: ""
         }
     }
 
@@ -19,9 +21,16 @@ class Movies extends React.Component {
             })
     }
 
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+    }
+
     componentDidMount = () => {
         this.fetchMovieInfo()
     }
+
+
 
     render() {
         //test for data return 
@@ -29,13 +38,14 @@ class Movies extends React.Component {
             return <option value={eachMovie.title}> {eachMovie.title} </option>
         })
         return (
-            <div>
-                <h1>Select A Movie</h1>
-                <form>
+            <div className="movies">
+                <h1>Select a Movie</h1>
+                <form onsubmit = {this.handleSubmit}>
                     <select>
                         {mapThroughMovies}
                     </select>
                 </form>
+                
             </div>
         )
 

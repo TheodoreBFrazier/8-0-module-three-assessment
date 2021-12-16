@@ -41,8 +41,9 @@ class Locations extends React.Component {
         //Display the info
 
         return (
-            <div>
+            <div className = "locations">
                 {mapThroughLocales}
+                <button>Show Locations</button>
             </div>
         )
 
